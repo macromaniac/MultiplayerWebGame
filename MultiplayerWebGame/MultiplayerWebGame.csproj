@@ -19,10 +19,13 @@
   <ItemGroup>
     <Content Include="app.css" />
     <Content Include="index.html" />
+    <Content Include="kinetic-v5.0.1.min.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app.ts" />
+    <TypeScriptCompile Include="kinetic.d.ts" />
+    <TypeScriptCompile Include="CustomScreen.ts" />
   </ItemGroup>
   <ItemGroup>
     <None Include="web.Debug.config">
