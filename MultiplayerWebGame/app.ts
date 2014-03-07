@@ -1,20 +1,13 @@
-﻿declare var peer: any;
-window.onload = () => {
-    var stage = new Kinetic.Stage({ container: 'container', width: 578, height: 200 });
-    var layer = new Kinetic.Layer();
-    var rect = new Kinetic.Rect({});
-    rect.x(100);
-    rect.y(100);
-    rect.height(100);
-    rect.width(100);
-    rect.fill("Blue");
-    rect.stroke("Black");
-    var loop = function (timestamp) {
-        rect.setX(rect.x() + .1);
-        layer.draw();
-        requestAnimationFrame(loop);
-    }
-    requestAnimationFrame(loop);
-    layer.add(rect);
-    stage.add(layer);
-};
+﻿
+// Reminder: All files are compiled into 1 JS file
+
+module MWG {
+    declare var Peer: any;
+    declare var util: any;
+    window.onload = () => {
+        var gameScreen = new GameScreen();
+        var peer = new Peer('dog', { host: 'www.xiffa.com', port: 9000, key: 'peerjs' });
+        var doesSupportData = util.browser;
+        gameScreen.create();
+   };
+}

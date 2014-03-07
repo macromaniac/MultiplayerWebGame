@@ -20,12 +20,14 @@
     <Content Include="app.css" />
     <Content Include="index.html" />
     <Content Include="kinetic-v5.0.1.min.js" />
+    <Content Include="peer.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app.ts" />
+    <TypeScriptCompile Include="KeyMan.ts" />
     <TypeScriptCompile Include="kinetic.d.ts" />
-    <TypeScriptCompile Include="CustomScreen.ts" />
+    <TypeScriptCompile Include="GameScreen.ts" />
   </ItemGroup>
   <ItemGroup>
     <None Include="web.Debug.config">
@@ -67,6 +69,7 @@
     <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
     <TypeScriptSourceMap>true</TypeScriptSourceMap>
     <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
+    <TypeScriptOutFile>all.js</TypeScriptOutFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <TypeScriptTarget>ES5</TypeScriptTarget>
