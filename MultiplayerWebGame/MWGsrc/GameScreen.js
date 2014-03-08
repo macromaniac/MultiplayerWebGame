@@ -1,5 +1,4 @@
-﻿var MWG;
-(function (MWG) {
+﻿define(["require", "exports"], function(require, exports) {
     var GameScreen = (function () {
         function GameScreen() {
             var _this = this;
@@ -26,6 +25,6 @@
         };
         return GameScreen;
     })();
-    MWG.GameScreen = GameScreen;
-})(MWG || (MWG = {}));
+    exports.GameScreen = GameScreen;
+});
 //# sourceMappingURL=GameScreen.js.map

@@ -19,15 +19,17 @@
   <ItemGroup>
     <Content Include="app.css" />
     <Content Include="index.html" />
+    <Content Include="jquery-1.11.0.min.js" />
     <Content Include="kinetic-v5.0.1.min.js" />
     <Content Include="peer.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="app.ts" />
-    <TypeScriptCompile Include="KeyMan.ts" />
+    <TypeScriptCompile Include="MWGsrc\app.ts" />
+    <TypeScriptCompile Include="jquery.d.ts" />
+    <TypeScriptCompile Include="MWGsrc\KeyMan.ts" />
     <TypeScriptCompile Include="kinetic.d.ts" />
-    <TypeScriptCompile Include="GameScreen.ts" />
+    <TypeScriptCompile Include="MWGsrc\GameScreen.ts" />
   </ItemGroup>
   <ItemGroup>
     <None Include="web.Debug.config">
@@ -69,6 +71,7 @@
     <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
     <TypeScriptSourceMap>true</TypeScriptSourceMap>
     <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
     <TypeScriptOutFile>all.js</TypeScriptOutFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
