@@ -99,19 +99,7 @@ var MWG;
         function GameScreen() {
             var _this = this;
             this.renderLoop = function (timestamp) {
-                var speed = 5;
-                if (MWG.KeyMan.isButtonDown(87 /* W */)) {
-                    _this.rect.setY(_this.rect.y() - speed);
-                }
-                if (MWG.KeyMan.isButtonDown(83 /* S */)) {
-                    _this.rect.setY(_this.rect.y() + speed);
-                }
-                if (MWG.KeyMan.isButtonDown(65 /* A */)) {
-                    _this.rect.setX(_this.rect.x() - speed);
-                }
-                if (MWG.KeyMan.isButtonDown(68 /* D */)) {
-                    _this.rect.setX(_this.rect.x() + speed);
-                }
+                _this.hero.tick();
                 _this.stage.draw();
                 requestAnimationFrame(_this.renderLoop);
             };
@@ -119,6 +107,22 @@ var MWG;
         GameScreen.prototype.create = function () {
             this.stage = new Kinetic.Stage({ container: 'container', width: 578, height: 200 });
             this.foreground = new Kinetic.Layer();
+            this.stage.add(this.foreground);
+
+            this.hero = new MWG.Hero(this.foreground);
+
+            requestAnimationFrame(this.renderLoop);
+        };
+        return GameScreen;
+    })();
+    MWG.GameScreen = GameScreen;
+})(MWG || (MWG = {}));
+var MWG;
+(function (MWG) {
+    var Hero = (function () {
+        function Hero(layer) {
+            this.layer = layer;
+
             this.rect = new Kinetic.Rect({});
             this.rect.x(100);
             this.rect.y(100);
@@ -126,12 +130,31 @@ var MWG;
             this.rect.width(100);
             this.rect.fill("Blue");
             this.rect.stroke("Black");
-            requestAnimationFrame(this.renderLoop);
+
+            this.layer.add(this.rect);
+        }
+        Hero.prototype.create = function () {
+            this.foreground = new Kinetic.Layer();
             this.foreground.add(this.rect);
             this.stage.add(this.foreground);
         };
-        return GameScreen;
+        Hero.prototype.tick = function () {
+            var speed = 5;
+            if (MWG.KeyMan.isButtonDown(87 /* W */)) {
+                this.rect.setY(this.rect.y() - speed);
+            }
+            if (MWG.KeyMan.isButtonDown(83 /* S */)) {
+                this.rect.setY(this.rect.y() + speed);
+            }
+            if (MWG.KeyMan.isButtonDown(65 /* A */)) {
+                this.rect.setX(this.rect.x() - speed);
+            }
+            if (MWG.KeyMan.isButtonDown(68 /* D */)) {
+                this.rect.setX(this.rect.x() + speed);
+            }
+        };
+        return Hero;
     })();
-    MWG.GameScreen = GameScreen;
+    MWG.Hero = Hero;
 })(MWG || (MWG = {}));
 //# sourceMappingURL=all.js.map

@@ -32,6 +32,7 @@
     <TypeScriptCompile Include="MWGsrc\GameScreen.ts" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="MWGsrc\Hero.ts" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
