@@ -27,6 +27,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="MWGsrc\app.ts" />
     <TypeScriptCompile Include="jquery.d.ts" />
+    <TypeScriptCompile Include="MWGsrc\Cipher.ts" />
     <TypeScriptCompile Include="MWGsrc\KeyMan.ts" />
     <TypeScriptCompile Include="kinetic.d.ts" />
     <TypeScriptCompile Include="MWGsrc\GameScreen.ts" />

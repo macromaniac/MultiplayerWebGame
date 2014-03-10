@@ -5,7 +5,7 @@
         var gameScreen = new GameScreen();
         var peer = new Peer('dog', { host: 'www.xiffa.com', port: 9000, key: 'peerjs' });
         peer.on('open', function (id) {
-            alert('Connected to peer server');
+
         });
         peer.on('error', function (id) {
             alert('Error connecting');

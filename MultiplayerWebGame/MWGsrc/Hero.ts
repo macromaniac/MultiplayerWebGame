@@ -4,27 +4,26 @@
         private foreground: Kinetic.Layer;
         private layer: Kinetic.Layer;
         private rect: Kinetic.Rect;
-        constructor(layer: Kinetic.Layer) {
+        constructor(layer: Kinetic.Layer, isVillain : boolean) {
             this.layer = layer;
-
+        
             this.rect = new Kinetic.Rect({});
             this.rect.x(100);
             this.rect.y(100);
             this.rect.height(100);
             this.rect.width(100);
-            this.rect.fill("Blue");
+            if (isVillain == true) {
+                this.rect.fill("Red");
+                this.rect.x(this.rect.x() + 100);
+            } else {
+                this.rect.fill("Blue");
+            }
             this.rect.stroke("Black");
 
             this.layer.add(this.rect);
-            
-             }
-        create() {
-            this.foreground = new Kinetic.Layer();
-            this.foreground.add(this.rect);
-            this.stage.add(this.foreground);
 
         }
-        public tick(){
+        public tick() {
             var speed: number = 5;
             if (KeyMan.isButtonDown(ButtonCode.W)) {
                 this.rect.setY(this.rect.y() - speed);

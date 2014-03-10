@@ -4,13 +4,27 @@
         var gameScreen = new MWG.GameScreen();
         var peer = new Peer('dog', { host: 'www.xiffa.com', port: 9000, key: 'peerjs' });
         peer.on('open', function (id) {
-            alert('Connected to peer server');
         });
         peer.on('error', function (id) {
             alert('Error connecting');
         });
         gameScreen.create();
     };
+})(MWG || (MWG = {}));
+var MWG;
+(function (MWG) {
+    var Cipher = (function () {
+        function Cipher() {
+        }
+        Cipher.encodeButton = function (buttonCode) {
+            return "";
+        };
+        Cipher.decodeButton = function (buttonData) {
+            return 65 /* A */;
+        };
+        return Cipher;
+    })();
+    MWG.Cipher = Cipher;
 })(MWG || (MWG = {}));
 var MWG;
 (function (MWG) {
@@ -100,16 +114,18 @@ var MWG;
             var _this = this;
             this.renderLoop = function (timestamp) {
                 _this.hero.tick();
+                _this.villian.tick();
                 _this.stage.draw();
                 requestAnimationFrame(_this.renderLoop);
             };
         }
         GameScreen.prototype.create = function () {
-            this.stage = new Kinetic.Stage({ container: 'container', width: 578, height: 200 });
+            this.stage = new Kinetic.Stage({ container: 'container', width: 620, height: 400 });
             this.foreground = new Kinetic.Layer();
             this.stage.add(this.foreground);
 
-            this.hero = new MWG.Hero(this.foreground);
+            this.hero = new MWG.Hero(this.foreground, true);
+            this.villian = new MWG.Hero(this.foreground, false);
 
             requestAnimationFrame(this.renderLoop);
         };
@@ -120,7 +136,7 @@ var MWG;
 var MWG;
 (function (MWG) {
     var Hero = (function () {
-        function Hero(layer) {
+        function Hero(layer, isVillain) {
             this.layer = layer;
 
             this.rect = new Kinetic.Rect({});
@@ -128,16 +144,16 @@ var MWG;
             this.rect.y(100);
             this.rect.height(100);
             this.rect.width(100);
-            this.rect.fill("Blue");
+            if (isVillain == true) {
+                this.rect.fill("Red");
+                this.rect.x(this.rect.x() + 100);
+            } else {
+                this.rect.fill("Blue");
+            }
             this.rect.stroke("Black");
 
             this.layer.add(this.rect);
         }
-        Hero.prototype.create = function () {
-            this.foreground = new Kinetic.Layer();
-            this.foreground.add(this.rect);
-            this.stage.add(this.foreground);
-        };
         Hero.prototype.tick = function () {
             var speed = 5;
             if (MWG.KeyMan.isButtonDown(87 /* W */)) {
