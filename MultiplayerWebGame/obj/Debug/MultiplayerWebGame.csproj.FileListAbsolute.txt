@@ -3,4 +3,3 @@ C:\git\MultiplayerWebGame\MultiplayerWebGame\bin\MultiplayerWebGame.dll
 C:\git\MultiplayerWebGame\MultiplayerWebGame\bin\MultiplayerWebGame.pdb
 C:\git\MultiplayerWebGame\MultiplayerWebGame\obj\Debug\MultiplayerWebGame.dll
 C:\git\MultiplayerWebGame\MultiplayerWebGame\obj\Debug\MultiplayerWebGame.pdb
-C:\git\MultiplayerWebGame\MultiplayerWebGame\obj\Debug\MultiplayerWebGame.csprojResolveAssemblyReference.cache
